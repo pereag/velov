@@ -1,81 +1,94 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/png" href="images/favicon.png" />
-    <link rel="stylesheet" href="style.css">
-    <title>Velo'v</title>
-</head>
-<body>
-    <header>
-        <img id="logo" src="images/logo.png" alt="logo">
-        <ul class="header-list">
-            <li class="header-list-elt"><a class="header-list-elt-link" href="#info">INFO</a></li>
-            <li class="header-list-elt"><a class="header-list-elt-link" href="#map">CARTE</a></li>
-            <li class="header-list-elt"><a class="header-list-elt-link" href="#reservation">RÉSERVATION</a></li>
-        </ul>
-    </header>
-    <section id="big-one" class="big-one">
-        <h1 class="big-one-title">Déplacez vous en toute liberter.</h1>
-    </section>
-    <section id="info" class="info">
-        <div class="title-groupe">
-            <hr class="red-line">
-            <h2 class="info-title">Comment ça marche ?</h2>
-        </div>
-        <div class="info-slideshow">
-        </div>
-    </section>
-    <section id="map" class="map">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="icon" type="image/png" href="images/favicon.png" />
+        <link rel="stylesheet" href="css/style.css">
+        <title>Velo'v</title>
+    </head>
+    <body>
+<!-------------------------------------- HEADER -------------------------------------------->
+        <header>
+            <img id="logo" src="images/logo.png" alt="logo">
+            <ul class="header-list">
+                <li class="header-list-elt"><a class="header-list-elt-link" href="#info">INFO</a></li>
+                <li class="header-list-elt"><a class="header-list-elt-link" href="#map">CARTE</a></li>
+                <li class="header-list-elt"><a class="header-list-elt-link" href="#reservation">RÉSERVATION</a></li>
+            </ul>
+        </header>
+<!-------------------------------------- BIG ONE -------------------------------------------->
+        <section id="big-one" class="big-one">
+            <h1 id="big-one-title" class="big-one-title">Déplacez vous en toute liberter.</h1>
+        </section>
+        <section id="info" class="info">
             <div class="title-groupe">
-                    <hr class="red-line">
-                    <h2 class="map-title">Carte des stations</h2>
+                <hr class="red-line">
+                <h2 class="info-title">Comment ça marche ?</h2>
             </div>
-            <canvas class="map-canvas">
-            </canvas>
-    </section>
-    <section id="reservation" class="reservation">
-        <div class="title-groupe">
-            <hr class="red-line">
-            <h2 class="reservation-title">Réserver votre Vélo'v</h2>
-        </div>
-        <div class="reservation-box">
-            <div class="reservation-box-left">
-                <div class="reservation-box-left-status">
-                    <h3>Status de la réservation</h3>
-                    <p>En cours</p>
+            <div id="info-slideshow"class="info-slideshow">
+                <div class="info-slideshow-buttons">
+                    <div id = "slideshow-leftButton" class="info-slideshow-button-left info-slideshow-button">
+                        <img class="arrow arrow-left" src="images/arrow-left.png" alt="arrow left">
+                    </div>
+                    <div id = "slideshow-rightButton" class="info-slideshow-button-right info-slideshow-button">
+                            <img class="arrow arrow-right"src="images/arrow-right.png" alt="arrow right">
+                    </div>
                 </div>
-                <div class="reservation-box-left-name">
-                    <h3>Nom de la station</h3>
-                    <p>Station de Vélo'v - Part-Dieu/Garibaldi</p>
+                <div class="info-slideshow-images">
+                    <img src="images/image-1.jpg" alt="image 1">
+                    <img src="images/image-2.jpg" alt="image 2">
+                    <img src="images/image-3.jpg" alt="image 3">
+                    <img src="images/image-4.jpg" alt="image 4">
                 </div>
             </div>
-            <div class="reservation-box-middle">
-                <div class="reservation-box-middle-location">
-                    <h3>Localisation</h3>
-                    <p>Boulevard Eugène Deruelle, 69003 Lyon</p>
+        </section>
+<!------------------------------------------ MAP ---------------------------------------------->
+        <section id="map" class="map">
+                <div class="title-groupe">
+                        <hr class="red-line">
+                        <h2 class="map-title">Carte des stations</h2>
                 </div>
-                <div class="reservation-box-middle-availability">
-                    <h3>Vélo'v disponible</h3>
-                    <p>12</p>
+                <canvas class="map-canvas">
+                </canvas>
+        </section>
+<!------------------------------------------ RESERVATION ---------------------------------------------->
+        <section id="reservation" class="reservation">
+            <div class="title-groupe">
+                <hr class="red-line">
+                <h2 class="reservation-title">Réserver votre Vélo'v</h2>
+            </div>
+            <div class="reservation-box">
+                <div class="reservation-box-left">
+                    <div class="reservation-box-left-status">
+                        <h3>Status de la réservation</h3>
+                        <p>En cours</p>
+                    </div>
+                    <div class="reservation-box-left-station">
+                        <h3>Nom de la station</h3>
+                        <p>Station de Vélo'v - Part-Dieu/Garibaldi</p>
+                    </div>
+                </div>
+                <div class="reservation-box-right">
+                    <div class="reservation-box-right-location">
+                        <h3>Localisation</h3>
+                        <p>Boulevard Eugène Deruelle, 69003 Lyon</p>
+                    </div>
+                    <div class="reservation-box-right-availability">
+                        <h3>Vélo'v disponible</h3>
+                        <p>12</p>
+                    </div>
                 </div>
             </div>
-            <div class="reservation-box-right">
-                <div class="reservation-box-right-signature">
-                    <h3>Signature</h3>
-                    <canvas class="reservation-box-right-signature-canva"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="reservation-buttons">
-                <a href="#reservation"><button class="button-red">EFFACER</button></a>
-                <a href="#reservation"><button>RÉSERVER</button></a>
-        </div>
-    </section>
-    <footer>
-        <p class="footer-txt"><a href="#" class="footer-txt-link">Mentions légales</a> | Tous droit réserver</p>
-    </footer>
-</body>
+            <a href="#reservation"><button  class="button-red">RÉSERVER</button></a>
+        </section>
+<!---------------------------------------------- FOOTER --------------------------------------------------->
+        <footer>
+            <p class="footer-txt"><a href="#" class="footer-txt-link">Mentions légales</a> | Tous droit réserver</p>
+        </footer>
+        <script type="text/javascript" src="js/textAnimation.js"></script>
+        <script type="text/javascript" src="js/slideshow.js"></script>
+        <script type="text/javascript" src="js/timer.js"></script>
+    </body>
 </html>
