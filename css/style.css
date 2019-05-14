@@ -67,8 +67,6 @@
 
         color: white;
         font-size: 19px;
-
-        cursor: pointer;
     }
     button:hover {
         transition: background-color 0.5s;
@@ -85,6 +83,9 @@
     }
     .title-groupe {
         margin: 70px 100px 70px 100px;
+    }
+    button, .info-slideshow-button, .info-slideshow-button-pausePlay{
+        cursor:pointer
     }
 /**------------------------------------------------------------------
                                HEADER
@@ -157,20 +158,44 @@
         opacity: 0.5;
 
         z-index: 2;
-        cursor: pointer;
-    }
-    .arrow {
-        position: relative;
-        top:43%;
-        margin:0px 50px 0px 50px;
     }
     .info-slideshow-button:hover{
         transition: opacity 0.5s;
         opacity: 0.8;
     }
+    
+    .arrow {
+        position: relative;
+        top:43%;
+        margin:0px 50px 0px 50px;
+    }
     .info-slideshow-images {
         display: none;
     }
+    .info-slideshow-button-pausePlay {
+        position: relative;
+        top:230px;
+        width: 150px;
+        height: 120px;
+
+        border-radius: 36px;
+
+        background-color: black;
+
+        opacity: 0.7;
+
+        text-align: center;
+    }
+    .pausePlay_desactive {
+        display: none;
+    }
+    .pausePlay_active {
+        display: inline;
+        position: relative;
+        top:35px;
+    }
+
+
 /**------------------------------------------------------------------
                               MAP
 ------------------------------------------------------------------**/
@@ -191,6 +216,13 @@
     }
     .reservation-buttons {
         text-align: center;
+    }
+    #signature {
+        width: 350px;
+        height: 150px;
+        box-shadow: 0px 0px 15px grey;
+
+        background-color: white;
     }
 /**------------------------------------------------------------------
                             FOOTER

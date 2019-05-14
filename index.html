@@ -32,8 +32,12 @@
                     <div id = "slideshow-leftButton" class="info-slideshow-button-left info-slideshow-button">
                         <img class="arrow arrow-left" src="images/arrow-left.png" alt="arrow left">
                     </div>
+                    <div id="slideshow-pausePlayButton" class="info-slideshow-button-pausePlay">
+                        <img id="pause" class="pausePlay pause pausePlay_active" src="images/pause-button.png" alt="pause button">
+                        <img id="play" class="pausePlay play pausePlay_desactive" src="images/play-button.png" alt="play button">
+                    </div>
                     <div id = "slideshow-rightButton" class="info-slideshow-button-right info-slideshow-button">
-                            <img class="arrow arrow-right"src="images/arrow-right.png" alt="arrow right">
+                        <img class="arrow arrow-right"src="images/arrow-right.png" alt="arrow right">
                     </div>
                 </div>
                 <div class="info-slideshow-images">
@@ -81,6 +85,8 @@
                     </div>
                 </div>
             </div>
+            <canvas id="signature">
+            </canvas>
             <a href="#reservation"><button  class="button-red">RÉSERVER</button></a>
         </section>
 <!---------------------------------------------- FOOTER --------------------------------------------------->
@@ -89,6 +95,6 @@
         </footer>
         <script type="text/javascript" src="js/textAnimation.js"></script>
         <script type="text/javascript" src="js/slideshow.js"></script>
-        <script type="text/javascript" src="js/timer.js"></script>
+        <script type="text/javascript" src="js/signature.js"></script>
     </body>
 </html>
