@@ -10,7 +10,6 @@ class slideshow {
         this.stopButtonPause = document.getElementById('pause')
         this.time = 5000
         this.image = 1
-
         this.auto = window.setInterval(() => {
             if(this.manualPlay){
             }
@@ -58,22 +57,34 @@ class slideshow {
             if(button ==  this.leftButton){
                 if(this.image  > 1)
                 {
-                    this.stop()
-                    this.image = this.image - 1
-                    this.changeImage()
-                    this.restart()
+                    if(this.auto !== null){
+                        this.stop()
+                        this.image = this.image - 1
+                        this.changeImage()
+                        this.restart()
+                    }
+                    else if (this.auto == null){
+                        this.image = this.image - 1
+                        this.changeImage()
+                    }
                 }
             }
             else if(button == this.rightButton){
                 if(this.image < 4){
-                    this.stop()
-                    this.image = this.image + 1
-                    this.changeImage()
-                    this.restart()
+                    if(this.auto !== null){
+                        this.stop()
+                        this.image = this.image + 1
+                        this.changeImage()
+                        this.restart()
+                    }
+                    else if (this.auto == null){
+                        this.image = this.image + 1
+                        this.changeImage()
+                    }
                 }
             }
             else if(button == this.stopButton){
-                if(this.auto != null){
+                if(this.auto !== null){
                     console.log('pause')
                     this.stop()
                     this.stopButtonPause.classList.replace('pausePlay_active', 'pausePlay_desactive')
