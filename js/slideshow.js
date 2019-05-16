@@ -1,90 +1,99 @@
 /**On crée un object slideshow */
 class slideshow {
     
-    constructor(){
-        this.id = document.getElementById('info-slideshow')
-        this.leftButton = document.getElementById('slideshow-leftButton')
-        this.rightButton = document.getElementById('slideshow-rightButton')
-        this.stopButton = document.getElementById('slideshow-pausePlayButton')
-        this.stopButtonPlay = document.getElementById('play')
-        this.stopButtonPause = document.getElementById('pause')
+    constructor(id, leftButton, rightButton, stopButton, stopButtonPlay, stopButtonPause){
+        this.id = id
+        this.leftButton = leftButton
+        this.rightButton = rightButton
+        this.stopButton = stopButton
+        this.stopButtonPlay = stopButtonPlay
+        this.stopButtonPause = stopButtonPause
         this.time = 5000
         this.image = 1
-        this.auto = window.setInterval(() => {
+        this.autoPlay = window.setInterval(() => {
             if(this.manualPlay){
             }
             if(this.image < 4 ) {
-                this.image = this.image + 1
-                this.changeImage()
+                this.next()
             }
             else if (this.image == 4){
-                this.image = 1
-                this.changeImage()
+                this.goFirstImage()
             }
         }, this.time)
+    }
+    
+
+    init(){
+        this.manualPlay(this.leftButton)
+        this.manualPlay(this.rightButton)
+        this.manualPlay(this.stopButton)
     }
 
     changeImage() {
         this.id.style.background = 'url(images/image-'+ this.image + '.jpg)'
     }
 
-    Play() {
-           this.auto
+    previous(){
+        this.image = this.image - 1
+        this.changeImage()
+    }
+
+    next() {
+        this.image = this.image + 1
+        this.changeImage()
     }
 
     stop() {
-        clearInterval(this.auto)
-        this.auto = null
+        clearInterval(this.autoPlay)
+        this.autoPlay = null
+    }
+    goFirstImage(){
+        this.image = 1
+        this.changeImage()
     }
 
     restart() {
-        this.auto = this.auto = window.setInterval(() => {
+        this.autoPlay = window.setInterval(() => {
             if(this.manualPlay){
             }
             if(this.image < 4 ) {
-                this.image = this.image + 1
-                this.changeImage()
+                this.next()
             }
-            else if (this.image = 4){
-                this.image = 1
-                this.changeImage()
+            else{
+                this.goFirstImage()
             }
         }, this.time) 
     }
 
     manualPlay(button){
          button.addEventListener('click', () => {
-            if(button ==  this.leftButton){
-                if(this.image  > 1)
-                {
-                    if(this.auto !== null){
+            if(button ==  this.leftButton ){
+                if(this.image  > 1){
+                    if(this.autoPlay !== null){
                         this.stop()
                         this.image = this.image - 1
                         this.changeImage()
                         this.restart()
                     }
-                    else if (this.auto == null){
-                        this.image = this.image - 1
-                        this.changeImage()
+                    else{
+                        this.previous()
                     }
                 }
             }
             else if(button == this.rightButton){
                 if(this.image < 4){
-                    if(this.auto !== null){
+                    if(this.autoPlay !== null){
                         this.stop()
-                        this.image = this.image + 1
-                        this.changeImage()
+                        this.next()
                         this.restart()
                     }
-                    else if (this.auto == null){
-                        this.image = this.image + 1
-                        this.changeImage()
+                    else{
+                        this.next()
                     }
                 }
             }
             else if(button == this.stopButton){
-                if(this.auto !== null){
+                if(this.autoPlay !== null){
                     console.log('pause')
                     this.stop()
                     this.stopButtonPause.classList.replace('pausePlay_active', 'pausePlay_desactive')
@@ -101,7 +110,5 @@ class slideshow {
     }
 }
 
-slideshow = new slideshow
-slideshow.manualPlay(slideshow.leftButton)
-slideshow.manualPlay(slideshow.rightButton)
-slideshow.manualPlay(slideshow.stopButton)
+slideshow = new slideshow(document.getElementById('info-slideshow'),  document.getElementById('slideshow-leftButton'), document.getElementById('slideshow-rightButton'), document.getElementById('slideshow-pausePlayButton'), document.getElementById('play'), document.getElementById('pause') )
+slideshow.init()
