@@ -74,6 +74,7 @@ class slideshow {
             }
         }, this.time) 
     }
+    
 /** Vérifie et applique l'action correspondant aux commandes du clavier et du diaporama */
     manualPlay(button){
          button.addEventListener('click', () => {
