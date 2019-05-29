@@ -54,8 +54,8 @@
                         <hr class="red-line">
                         <h2 class="map-title">Carte des stations</h2>
                 </div>
-                <canvas class="map-canvas">
-                </canvas>
+                <div id="map-google">
+                </div>
         </section>
 <!------------------------------------------ RESERVATION ---------------------------------------------->
         <section id="reservation" class="reservation">
@@ -85,8 +85,6 @@
                     </div>
                 </div>
             </div>
-            <canvas id="signature">
-            </canvas>
             <a href="#reservation"><button  class="button-red">RÉSERVER</button></a>
         </section>
 <!---------------------------------------------- FOOTER --------------------------------------------------->
@@ -101,7 +99,10 @@
         </div>
         <script type="text/javascript" src="js/textAnimation.js"></script>
         <script type="text/javascript" src="js/slideshow.js"></script>
-        <script type="text/javascript" src="js/signature.js"></script>
         <script type="text/javascript" src="js/loader.js"></script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7FK5RF5_zBNe3PgQH9btW1o_aXA3sPhw&callback=map.initMap">
+    </script>
+        <script type="text/javascript" src="js/map.js"></script>
     </body>
 </html>

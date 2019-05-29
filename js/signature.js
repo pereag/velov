@@ -37,7 +37,41 @@ class signature {
       requestAnimFrame(loopRender)
       self.renderCanvas()
     } 
-    loopRender()   
+    loopRender() 
+
+    // Tactile mobile
+
+    this.canvas.addEventListener("touchstart", (e) => {
+      this.mousePos = getTouchPos(this.canvas, e);
+      var touch = e.touches[0];
+      var mouseEvent = new MouseEvent("mousedown", {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+    });
+
+    this.canvas.dispatchEvent(mouseEvent);
+    }, false);
+
+    this.canvas.addEventListener("touchend",  () => {
+    var mouseEvent = new MouseEvent("mouseup", {});
+    this.canvas.dispatchEvent(mouseEvent);
+    }, false);
+    this.canvas.addEventListener("touchmove", (e) => {
+    var touch = e.touches[0];
+    var mouseEvent = new MouseEvent("mousemove", {
+      clientX: touch.clientX,
+      clientY: touch.clientY
+    });
+    this.canvas.dispatchEvent(mouseEvent);
+    }, false);
+
+    function getTouchPos(canvasDom, touchEvent) {
+      var rect = canvasDom.getBoundingClientRect();
+      return {
+        x: touchEvent.touches[0].clientX - rect.left,
+        y: touchEvent.touches[0].clientY - rect.top
+      };
+    }
   }
 
   getMousePos(canvasDom, mouseEvent) {
