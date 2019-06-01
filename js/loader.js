@@ -1,4 +1,4 @@
-class loader {
+class Loader {
     constructor(logo, pageLoader){
         this.logo = logo
         this.pageLoader = pageLoader
@@ -11,6 +11,3 @@ class loader {
     }
 
 }
-
-loader = new loader(document.getElementById("logo-loader"), document.getElementById("loader"))
-loader.play()

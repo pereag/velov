@@ -1,5 +1,5 @@
 /**On crée un object slideshow */
-class slideshow {
+class Slideshow {
     constructor(id, leftButton, rightButton, stopButton, stopButtonPlay, stopButtonPause, valueButtonActive, valueButtonDesactive, time){
         this.id = id
         this.leftButton = leftButton
@@ -74,7 +74,14 @@ class slideshow {
             }
         }, this.time) 
     }
-    
+    displayStopButton(){
+        this.id.addEventListener("mouseover", () =>{
+            document.getElementById("slideshow-pausePlayButton").classList.replace("mouseOut", "mouseOn")
+        })
+        this.id.addEventListener("mouseout", () => {
+            document.getElementById("slideshow-pausePlayButton").classList.replace("mouseOn", "mouseOut")
+        })
+    }
 /** Vérifie et applique l'action correspondant aux commandes du clavier et du diaporama */
     manualPlay(button){
          button.addEventListener('click', () => {
@@ -121,18 +128,18 @@ class slideshow {
 
         document.addEventListener('keydown', (e)=>{
             if(e.keyCode === 37 && this.arrowLeft == false){
-               this.arrowLeft = true
-               if(this.image  > 1){
-                if(this.autoPlay !== null){
-                    this.stop()
-                    this.image = this.image - 1
-                    this.changeImage()
-                    this.restart()
+                this.arrowLeft = true
+                if(this.image  > 1){
+                    if(this.autoPlay !== null){
+                        this.stop()
+                        this.image = this.image - 1
+                        this.changeImage()
+                        this.restart()
+                    }
+                    else{
+                        this.previous()
+                    }
                 }
-                else{
-                    this.previous()
-                }
-            }
             }
             else if(e.keyCode === 39 && this.arrowRight == false){
                 this.arrowRight = true
@@ -156,6 +163,3 @@ class slideshow {
         })
     }
 }
-
-slideshow = new slideshow(document.getElementById('info-slideshow'),  document.getElementById('slideshow-leftButton'), document.getElementById('slideshow-rightButton'), document.getElementById('slideshow-pausePlayButton'), document.getElementById('play'), document.getElementById('pause'), 'pausePlay_active', 'pausePlay_desactive', 5000 )
-slideshow.init()

@@ -1,4 +1,4 @@
-class timer {
+class Timer {
 
     constructor(minute, seconde){
         this.minute = minute
@@ -23,7 +23,3 @@ class timer {
         }, 1000)
     }
 }
-
-time = new timer(20, 0)
-
-time.startTimer()

@@ -19,7 +19,7 @@
 
         text-decoration: none;
     }
-    section {margin-bottom: 100px;}
+    section {margin-bottom: 120px;}
     h1,h2,h3,button {font-weight:bold;}
     h1,h2 {text-align:center;}
     h1 {
@@ -28,20 +28,24 @@
         
         color: white;
         font-size: 80px;
-        text-shadow: 1px 1px 10px black;
+        text-shadow: 0px 10px 20px #2e2e2e;
     }
     h2 {
         margin: 15px 50px 15px 50px;
 
-        font-size: 45px;
-        color: #515151;
+        font-size: 42px;
+        color: #414141;
+        text-shadow: 0px 5px 20px grey;
     }
     h3 {
+        margin: auto auto 10px auto;
         font-size:25px;
         color:#6D6D6D;
+
     }
     p,input[type=text] {
-        font-size: 21px;
+        margin: 10px auto 10px auto;
+        font-size:  19px;
         color:#9B9B9B;
     }
     input[type=text] {
@@ -82,7 +86,7 @@
         background-color:red;
     }
     .title-groupe {
-        margin: 70px 100px 70px 100px;
+        margin: 70px 100px 60px 100px;
     }
     button, .info-slideshow-button, .info-slideshow-button-pausePlay{
         cursor:pointer
@@ -148,13 +152,13 @@
 
         list-style: none; 
     }
-    .header-list-elt {
+    .header-list li {
         margin-left: 111px;
     }
-    .header-list-elt-link {
+    .header-list li a {
         padding-bottom: 24px;
     }
-    .header-list-elt-link:hover {
+    .header-list li a:hover {
         border-bottom: red solid 3px;
     }
 /**------------------------------------------------------------------
@@ -164,6 +168,8 @@
         width: 100%;
         height: 780px;
 
+        box-shadow: grey 0px 10px 10px;
+    
         background-image: url('../images/big-one-background.jpg');
     }
     .big-one-title {opacity:0;}
@@ -175,7 +181,7 @@
         height: 580px;
         margin:auto;
 
-        box-shadow: 0px 0px 25px rgb(221, 221, 221);
+        box-shadow: 0px 10px 10px grey;
         
         background-image: url('../images/image-1.jpg')
     }
@@ -193,11 +199,6 @@
 
         z-index: 2;
     }
-    .info-slideshow-button:hover{
-        transition: opacity 0.5s;
-        opacity: 0.8;
-    }
-    
     .arrow {
         position: relative;
         top:43%;
@@ -216,7 +217,7 @@
 
         background-color: black;
 
-        opacity: 0.7;
+        opacity: 0;
 
         text-align: center;
     }
@@ -228,18 +229,30 @@
         position: relative;
         top:35px;
     }
+    .mouseOn {
+        transition: opacity 0.7s;
+        opacity: 0.4;
+    }
+    .mouseOut {
+        transition: opacity 0.7s;
+        opacity: 0;
+    }
+    .info-slideshow-button:hover, .info-slideshow-button-pausePlay:hover {
+        transition: opacity 0.5s;
+        opacity: 0.8;
+    }
 /**------------------------------------------------------------------
                               MAP
 ------------------------------------------------------------------**/
     #map-google {
         width:100%;
-        height:800px;
+        height:750px;
     }
 /**------------------------------------------------------------------
                             RESERVATION
 ------------------------------------------------------------------**/
     .reservation-box {
-        margin:auto auto 70px auto;
+        margin:100px auto 200px auto;
         width: 70%;
         display:flex;
         justify-content: space-around;

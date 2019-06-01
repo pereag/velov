@@ -1,4 +1,4 @@
-class signature {
+class Signature {
   constructor(canvas){
       this.canvas = canvas
       this.ctx = this.canvas.getContext('2d') 
@@ -96,5 +96,3 @@ class signature {
     this.canvas.width = this.canvas.width
   }
 }
-signature = new signature(document.getElementById("signature"))
-signature.play()

@@ -10,18 +10,19 @@
     </head>
     <body>
 <!-------------------------------------- HEADER -------------------------------------------->     
-<header>
+        <header>
             <img id="logo" src="images/logo.png" alt="logo">
             <ul class="header-list">
-                <li class="header-list-elt"><a class="header-list-elt-link" href="#info">INFO</a></li>
-                <li class="header-list-elt"><a class="header-list-elt-link" href="#map">CARTE</a></li>
-                <li class="header-list-elt"><a class="header-list-elt-link" href="#reservation">RÉSERVATION</a></li>
+                <li><a href="#info">INFO</a></li>
+                <li><a href="#map">CARTE</a></li>
+                <li><a href="#reservation">RÉSERVATION</a></li>
             </ul>
         </header>
 <!-------------------------------------- BIG ONE -------------------------------------------->
         <section id="big-one" class="big-one">
             <h1 id="big-one-title" class="big-one-title">Déplacez vous en toute liberté.</h1>
         </section>
+<!-------------------------------------- INFO ----------------------------------------------->
         <section id="info" class="info">
             <div class="title-groupe">
                 <hr class="red-line">
@@ -32,7 +33,7 @@
                     <div id = "slideshow-leftButton" class="info-slideshow-button-left info-slideshow-button">
                         <img class="arrow arrow-left" src="images/arrow-left.png" alt="arrow left">
                     </div>
-                    <div id="slideshow-pausePlayButton" class="info-slideshow-button-pausePlay">
+                    <div id="slideshow-pausePlayButton" class="info-slideshow-button-pausePlay mouseOut">
                         <img id="pause" class="pausePlay pause pausePlay_active" src="images/pause-button.png" alt="pause button">
                         <img id="play" class="pausePlay play pausePlay_desactive" src="images/play-button.png" alt="play button">
                     </div>
@@ -61,31 +62,11 @@
         <section id="reservation" class="reservation">
             <div class="title-groupe">
                 <hr class="red-line">
-                <h2 class="reservation-title">Réserver votre Vélo'v</h2>
+                <h2 class="reservation-title">Votre réservation</h2>
             </div>
             <div class="reservation-box">
-                <div class="reservation-box-left">
-                    <div class="reservation-box-left-status">
-                        <h3>Status de la réservation</h3>
-                        <p>En cours</p>
-                    </div>
-                    <div class="reservation-box-left-station">
-                        <h3>Nom de la station</h3>
-                        <p>Station de Vélo'v - Part-Dieu/Garibaldi</p>
-                    </div>
-                </div>
-                <div class="reservation-box-right">
-                    <div class="reservation-box-right-location">
-                        <h3>Localisation</h3>
-                        <p>Boulevard Eugène Deruelle, 69003 Lyon</p>
-                    </div>
-                    <div class="reservation-box-right-availability">
-                        <h3>Vélo'v disponible</h3>
-                        <p>12</p>
-                    </div>
-                </div>
+                <p>Veuillez sélectionner une station sur la carte et compléter le formulaire.</p>
             </div>
-            <a href="#reservation"><button  class="button-red">RÉSERVER</button></a>
         </section>
 <!---------------------------------------------- FOOTER --------------------------------------------------->
         <footer>
@@ -97,12 +78,11 @@
                 <img id="loader-icon" src="images/loader.png" alt="icone de chargement">
             </div>
         </div>
-        <script type="text/javascript" src="js/textAnimation.js"></script>
-        <script type="text/javascript" src="js/slideshow.js"></script>
-        <script type="text/javascript" src="js/loader.js"></script>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7FK5RF5_zBNe3PgQH9btW1o_aXA3sPhw&callback=map.initMap">
-    </script>
-        <script type="text/javascript" src="js/map.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7FK5RF5_zBNe3PgQH9btW1o_aXA3sPhw"></script>
+        <script type="text/javascript" src="js/Maps.js"></script>
+        <script type="text/javascript" src="js/TextAnimation.js"></script>
+        <script type="text/javascript" src="js/Slideshow.js"></script>
+        <script type="text/javascript" src="js/Loader.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>

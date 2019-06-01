@@ -1,4 +1,4 @@
-class textAnimation {
+class TextAnimation {
     constructor(text){
         this.text = text
     }
@@ -8,6 +8,3 @@ class textAnimation {
         this.text.style.transition = "opacity 3s";
     }
 }
-
-textAnimation = new textAnimation(document.getElementById('big-one-title'))
-textAnimation.animation()
