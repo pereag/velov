@@ -5,9 +5,7 @@ class Loader {
     }
 
     play(){
-        window.setTimeout(()=>{
             this.pageLoader.classList.add("desactive-loader")   
-        }, 500)
     }
 
 }

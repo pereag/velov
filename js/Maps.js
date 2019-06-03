@@ -218,6 +218,9 @@ class Maps {
                 self.response =  JSON.parse(this.responseText)
                 for(var i = 0; i < self.response.length; i++){
                     self.marker[i] = new google.maps.Marker({position: self.response[i].position, map: self.map, Title: "STATION : " + self.response[i].name, icon:{url:"images/station.png"}})
+                    self.marker[i].addListener('click', function() {
+                      console.log("hello bitch")
+                    })
                 }
             }
         }
