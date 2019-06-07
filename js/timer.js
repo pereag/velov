@@ -4,7 +4,7 @@ class Timer {
         this.minute = minute
         this.seconde = seconde
     }
-
+// Lance le décompte du minuteur
     startTimer(){
         let timerGo = setInterval(()=>{
             this.seconde = this.seconde - 1

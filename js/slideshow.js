@@ -1,4 +1,4 @@
-/**On crée un object slideshow */
+// On crée un object slideshow
 class Slideshow {
     constructor(id, leftButton, rightButton, stopButton, stopButtonPlay, stopButtonPause, valueButtonActive, valueButtonDesactive, time){
         this.id = id
@@ -25,43 +25,43 @@ class Slideshow {
         }, this.time)
     }
 
-/** Initialise les bouttons du diaporama*/
+// Initialise les bouttons du diaporama
     init(){
         this.manualPlay(this.leftButton)
         this.manualPlay(this.rightButton)
         this.manualPlay(this.stopButton)
     }
 
-/** Change le background du diaporama */
+// Change le background du diaporama 
     changeImage() {
         this.id.style.background = 'url(images/image-'+ this.image + '.jpg)'
     }
 
-/** Affiche l'image précedente */
+// Affiche l'image précedente 
     previous(){
         this.image = this.image - 1
         this.changeImage()
     }
 
-/** Affiche l'image suivante */
+// Affiche l'image suivante 
     next() {
         this.image = this.image + 1
         this.changeImage()
     }
     
-/** Arrete le diaporama */
+// Arrete le diaporama 
     stop() {
         clearInterval(this.autoPlay)
         this.autoPlay = null
     }
 
-/** Affiche le premier */  
+// Affiche le premier
     goFirstImage(){
         this.image = 1
         this.changeImage()
     }
 
-/** Redémarre le diaporama */
+// Redémarre le diaporama 
     restart() {
         this.autoPlay = window.setInterval(() => {
             if(this.manualPlay){
@@ -74,6 +74,8 @@ class Slideshow {
             }
         }, this.time) 
     }
+
+// Affiche le bouton de lecture
     displayStopButton(){
         this.id.addEventListener("mouseover", () =>{
             document.getElementById("slideshow-pausePlayButton").classList.replace("mouseOut", "mouseOn")
@@ -82,7 +84,8 @@ class Slideshow {
             document.getElementById("slideshow-pausePlayButton").classList.replace("mouseOn", "mouseOut")
         })
     }
-/** Vérifie et applique l'action correspondant aux commandes du clavier et du diaporama */
+
+// Vérifie et applique l'action correspondant aux commandes du clavier et du diaporama
     manualPlay(button){
          button.addEventListener('click', () => {
             if(button ==  this.leftButton ){
@@ -125,7 +128,6 @@ class Slideshow {
                 }
             }
         })
-
         document.addEventListener('keydown', (e)=>{
             if(e.keyCode === 37 && this.arrowLeft == false){
                 this.arrowLeft = true

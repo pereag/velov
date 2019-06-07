@@ -1,5 +1,5 @@
 class Signature {
-  constructor(canvas){
+  constructor(canvas) {
       this.canvas = canvas
       this.ctx = this.canvas.getContext('2d') 
       this.ctx.lineWith = 2
@@ -8,7 +8,9 @@ class Signature {
       this.mousePos = { x:0, y:0 }
       this.lastPos = this.mousePos
   }
-  play(){
+
+// initialise la signature
+  play() {
     this.canvas.addEventListener("mousedown", (e) => {
       this.drawing = true;
       this.lastPos = this.getMousePos(this.canvas, e)
@@ -39,7 +41,7 @@ class Signature {
     } 
     loopRender() 
 
-    // Tactile mobile
+  // Tactile mobile
 
     this.canvas.addEventListener("touchstart", (e) => {
       this.mousePos = getTouchPos(this.canvas, e);
@@ -74,14 +76,16 @@ class Signature {
     }
   }
 
+// Donne la position de la souris
   getMousePos(canvasDom, mouseEvent) {
       var rect = canvasDom.getBoundingClientRect()
       return {
         x: mouseEvent.clientX - rect.left,
         y: mouseEvent.clientY - rect.top
       };
-    }
+  }
 
+// Retourne le rendu du canvas
   renderCanvas() {
     if (this.drawing === true) {
       this.ctx.moveTo(this.lastPos.x, this.lastPos.y)
@@ -91,8 +95,10 @@ class Signature {
     }
   }
 
-  clearCanvas(){
+// Efface le canvas
+  clearCanvas() {
     this.ctx.clearRect(0,0, this.canvas.width, this.canvas.height)
     this.canvas.width = this.canvas.width
   }
+
 }

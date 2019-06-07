@@ -60,29 +60,30 @@
                     </div>
                     <div class="map-content-right">
                         <div id="_map-reservation_">
-                                <hr class="red-line">
                             <h3>Informations de la station</h3>
-                            <div class="map-content-right-info">
+                            <hr class="red-line-small">
+                            <div>
+                                <div class="map-content-right-info">
                                     <span class="_placeholder_">Nom</span>
-                                    <span class="_result_" id="station-name">Gerland</span>
+                                    <span class="_result_" id="station-name"></span>
                             </div>
-                                <br>
+
                             <div class="map-content-right-info">
-                                    <span class="_placeholder_">Adresses</span>
-                                    <span class="_result_" id="station-adress">10 rue de la paie 69004</span>
+                                    <span class="_placeholder_">Localisation</span>
+                                    <span class="_result_" id="station-address"></span>
                             </div>
-                                <br>
+
                             <div class="map-content-right-info">
                                     <span class="_placeholder_">États</span>
-                                    <span class="_result_" id="station-state">Ouvert</span>
+                                    <span class="_result_" id="station-status"></span>
                             </div>
-                                <br>
+
                             <div class="map-content-right-info">
-                                    <span class="_placeholder_">Velo'V disponnibles</span>
-                                    <span class="_result_" id="velov-number">3</span>
+                                    <span class="_placeholder_">Velo'v disponnible</span>
+                                    <span class="_result_" id="velov-number"></span>
                             </div>
-                                <br>
-                            <button class="button-red">Réservez votre Vélo'V</button>
+                            </div>
+                            <button id="reservation-button" class="button-red">Réserver</button>
                         </div>
                     </div>
                 </div>
@@ -90,7 +91,7 @@
 <!------------------------------------------ RESERVATION ---------------------------------------------->
         <section id="reservation" class="reservation">
             <div class="title-groupe">
-                <hr class="red-line">
+                    <hr class="red-line">
                 <h2 class="reservation-title">Votre réservation</h2>
             </div>
             <div class="reservation-box">
@@ -99,8 +100,9 @@
         </section>
 <!---------------------------------------------- FOOTER --------------------------------------------------->
         <footer>
-            <p class="footer-txt"><a href="#" class="footer-txt-link">Mentions légales</a> | Tous droit réserver</p>
+            <p class="footer-txt"><a href="#" class="footer-txt-link">Mentions légales</a> | Tous droits réservés</p>
         </footer>
+<!----------------------------------------------- LOADER -------------------------------------------------->        
         <div id="loader">
             <div class="loader-content">
                 <img src="images/logo.png" alt="logo"><br>
@@ -112,6 +114,8 @@
         <script type="text/javascript" src="js/TextAnimation.js"></script>
         <script type="text/javascript" src="js/Slideshow.js"></script>
         <script type="text/javascript" src="js/Loader.js"></script>
+        <script type="text/javascript" src="js/Reservation.js"></script>
+        <!--- <script type="text/javascript" src="js/Signature.js"></script> -->
         <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>

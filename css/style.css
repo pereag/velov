@@ -21,6 +21,7 @@
 
         text-decoration: none;
     }
+
     section {margin-bottom: 120px;}
     h1,h2,h3,button {
         font-weight:bold;
@@ -28,21 +29,20 @@
     h1 {
         padding-top:349px;
         margin: 0px 100px 0px 100px;
+        text-shadow: 0px 0px 30px #000000;
         
         color: white;
         font-size: 80px;
     }
     h2 {
         margin: 15px 50px 15px 50px;
-
-        font-size: 50px;
-        text-shadow: 0px 5px 20px grey;
+        text-shadow: 0px 0px 20px grey;
+        font-size: 44px;
     }
     h3 {
-        margin: 20px auto 40px auto;
-        font-size:32px;
-        color: black;
-        text-shadow: 0px 5px 20px grey;
+        margin: 20px auto 20px auto;
+        font-size:25px;
+        color: #303030;
     }
     p,input[type=text] {
         margin: 10px auto 10px auto;
@@ -71,7 +71,7 @@
         background-color: black;
 
         color: white;
-        font-size: 19px;
+        font-size: 17px;
     }
     button:hover {
         transition: background-color 0.5s;
@@ -87,7 +87,7 @@
         background-color:red;
     }
     .title-groupe {
-        margin: 70px 100px 60px 100px;
+        margin: 70px 100px 50px 100px;
     }
     button, .info-slideshow-button, .info-slideshow-button-pausePlay{
         cursor:pointer
@@ -114,6 +114,9 @@
         margin-top: -51px;
         margin-left: -56px;
     }
+    .red-line-small{
+        color: red;
+    }
     #loader-icon {
         -webkit-animation: rotation 4s infinite linear;
     }
@@ -126,6 +129,7 @@
 				-webkit-transform: rotate(359deg);
 		}
 }
+
 /**------------------------------------------------------------------
                                HEADER
 ------------------------------------------------------------------**/
@@ -178,7 +182,7 @@
                               INFO
 ------------------------------------------------------------------**/
     .info-slideshow {
-        width:85%;
+        width:90%;
         height: 580px;
         margin:auto;
 
@@ -246,8 +250,10 @@
                               MAP
 ------------------------------------------------------------------**/
     .map-content {
+        margin:auto;
         display: flex;
         justify-content: space-between;
+        width: 90%;
     }
     #api--google {
         width:60%;
@@ -256,29 +262,31 @@
         box-shadow: 0px 0px 30px grey;
     }
     .map-content-right{
-        width: 39%;
+        width: 37%;
         height:650px;
         background-color: #f3f3f3;
-        font-size: 20px;
-        color:#3b3b3b;
+        font-size: 18px;
+        color:#464545;
         box-shadow: 0px 0px 30px grey;
 
     }
     #_map-reservation_ {
-        margin: 60px 30px 60px 30px;
+        margin: 30px 30px 30px 30px;
     }
     ._placeholder_ {
         font-weight: bold;
-        padding: 10px;
+        padding: 12px;
     }
     ._result_ {
-        width: 40%;
-        padding: 10px;
+        width: 60%;
+        padding: 12px;
         text-align: left;
     }
     .map-content-right-info{
         display: flex;
         justify-content: space-between;
+        background-color: #ececec;
+        margin: 5px auto 5px auto;
     }
 /**------------------------------------------------------------------
                             RESERVATION
@@ -288,9 +296,6 @@
         width: 70%;
         display:flex;
         justify-content: space-around;
-    }
-    .reservation-buttons {
-        text-align: center;
     }
     #signature {
         width: 300px;
