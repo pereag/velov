@@ -1,15 +1,11 @@
 class Maps {
-  constructor(id, x, y, zoomMap, stationName, stationAddress, stationStatus, velovNumber){
+  constructor(id, x, y, zoomMap){
       this.id = id
       this.location = {lat: x, lng: y }
       this.map = false
       this.zoomMap = zoomMap
       this.marker = []
       this.response = false
-      this.stationName = stationName
-      this.stationAddress = stationAddress
-      this.stationStatus = stationStatus
-      this.velovNumber = velovNumber
       this.mapStyle = [
           {
             "elementType": "geometry",
@@ -203,7 +199,7 @@ class Maps {
             ]
           }
       ]        
-  }
+    }
 
 // Appel les fonctions pour l'initialisation des marqueurs et de la map
   play(){
@@ -220,7 +216,7 @@ class Maps {
 
 //Crée les marqueurs de la map 
   getMarker(){
-    var self = this
+    let self = this
   // requête ajax pour afficher les informations sur les stations Velo'V de Lyon
     let request = new XMLHttpRequest()
     request.onreadystatechange = function() {
@@ -228,26 +224,32 @@ class Maps {
         self.response =  JSON.parse(this.responseText)
       //On crée une boucle pour crée les objets marqueurs
         for (var i = 0; i < self.response.length; i++) {
-          self.marker[i] = new google.maps.Marker({position: self.response[i].position, map: self.map, icon:{url:"images/station.png"}, name: self.response[i].name, address: self.response[i].address, status: self.response[i].status, velov: self.response[i].available_bikes})
+          let station = new Station(self.response[i], document.getElementById("station-name"), document.getElementById("station-address"), document.getElementById("station-status"), document.getElementById("velov-number"))
+          self.marker[i] = new google.maps.Marker({position: station.position, map: self.map, icon:{url:"images/station.png"}})
         //On crée un écouteur d'évenement qui une fois activé retourne les informations de la station selectionné
           self.marker[i].addListener('click', function() {
-            self.stationName.innerHTML = this.name.toLowerCase()
-            self.stationAddress.innerHTML = this.address.charAt(0).toUpperCase() + this.address.substring(1).toLowerCase()
-            if (this.status == "OPEN"){
-              self.stationStatus.innerHTML = "Ouverte"
-            }
-            else if(this.status == "CLOSED"){
-              self.stationStatus.innerHTML = "Fermée"
-            }
-            else{
-              self.stationStatus.innerHTML = this.status
-            }
-            self.velovNumber.innerHTML = this.velov
+            self.displayInfoStation(station)
           })
         }
       }
     }
     request.open("GET", "https://api.jcdecaux.com/vls/v1/stations?contract=lyon&apiKey=43f89aec196d8dc961aef4bfbde0b6a681dff5df")
     request.send()
+  }
+
+// Affiche les information de la station
+  displayInfoStation(station){
+    station.nameId.innerHTML = station.name.toLowerCase()
+    station.addressId.innerHTML = station.address.charAt(0).toUpperCase() + station.address.substring(1).toLowerCase()
+    if (station.status == "OPEN"){
+      station.statusId.innerHTML = "Ouverte"
+    }
+    else if(station.status == "CLOSED"){
+      station.statusId.innerHTML = "Fermée"
+    }
+    else{
+      station.statusId.innerHTML = station.status
+    }
+    station.velovNumberId.innerHTML = station.velovNumber
   }
 }
