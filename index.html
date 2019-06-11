@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="icon" type="image/png" href="images/favicon.png" />
         <link rel="stylesheet" href="css/style.css">
-        <title>Velo'v | La liberté à portée de click</title>
+        <title>Velo'v | La liberté à portée de bicyclette</title>
     </head>
     <body>
 <!-------------------------------------- HEADER -------------------------------------------->     
@@ -52,38 +52,58 @@
 <!------------------------------------------ MAP ---------------------------------------------->
         <section id="map" class="map">
                 <div class="title-groupe">
-                        <hr class="red-line">
-                        <h2 class="map-title">Carte des stations</h2>
+                    <hr class="red-line">
+                    <h2 class="map-title">Carte des stations</h2>
                 </div>
                 <div class="map-content">
-                    <div id="api--google">
+                    <div id="api-google">
                     </div>
                     <div class="map-content-right">
-                        <div id="_map-reservation_">
+                        <div id="map-info-station">
                             <h3>Informations de la station</h3>
                             <hr class="red-line-small">
                             <div>
                                 <div class="map-content-right-info">
-                                    <span class="_placeholder_">Nom</span>
-                                    <span class="_result_" id="station-name"></span>
-                            </div>
+                                    <span class="placeholder">Nom</span>
+                                    <span class="result" id="station-name"></span>
+                                </div>
 
-                            <div class="map-content-right-info">
-                                    <span class="_placeholder_">Localisation</span>
-                                    <span class="_result_" id="station-address"></span>
-                            </div>
+                                <div class="map-content-right-info">
+                                        <span class="placeholder">Localisation</span>
+                                        <span class="result" id="station-address"></span>
+                                </div>
 
-                            <div class="map-content-right-info">
-                                    <span class="_placeholder_">États</span>
-                                    <span class="_result_" id="station-status"></span>
-                            </div>
+                                <div class="map-content-right-info">
+                                        <span class="placeholder">États</span>
+                                        <span class="result" id="station-status"></span>
+                                </div>
 
-                            <div class="map-content-right-info">
-                                    <span class="_placeholder_">Velo'v disponnible</span>
-                                    <span class="_result_" id="velov-number"></span>
+                                <div class="map-content-right-info">
+                                        <span class="placeholder">Velo'v disponnible</span>
+                                        <span class="result" id="velov-number"></span>
+                                </div>
+                                <span id="error-info-station"></span>
                             </div>
-                            </div>
-                            <button id="reservation-button" class="button-red">Réserver</button>
+                            <button id="reservation-button" class="button-red">Réservation</button>
+                        </div>
+                        <div id="map-reservation">
+                            <h3>Réservation</h3>
+                            <hr class="red-line-small">
+                            <form  id="form-reservation" action="">
+                                <div class="input-group">
+                                        <input id="reservation-name" type="text" placeholder="Nom">
+                                        <input id="reservation-firstName" type="text" placeholder="Prénom">
+                                        <span id="error-reservation"></span>
+                                </div>
+                                <div class="signature-group">
+                                        <canvas id="signature"></canvas>
+                                </div>
+                                <div class="button-group">
+                                    <button id="delete" type="button">Effacer</button>
+                                    <button id="send" class="button-red" type="button">Réserver</button>
+                                </div>
+                            </form>
+                            <p id="confirmation-message"></p>
                         </div>
                     </div>
                 </div>
@@ -92,7 +112,7 @@
         <section id="reservation" class="reservation">
             <div class="title-groupe">
                     <hr class="red-line">
-                <h2 class="reservation-title">Votre réservation</h2>
+                <h2 class="reservation-title">Details de votre réservation</h2>
             </div>
             <div class="reservation-box">
                 <p>Veuillez sélectionner une station sur la carte puis compléter le formulaire.</p>
@@ -116,7 +136,7 @@
         <script type="text/javascript" src="js/Loader.js"></script>
         <script type="text/javascript" src="js/Reservation.js"></script>
         <script type="text/javascript" src="js/Station.js"></script>
-        <!--- <script type="text/javascript" src="js/Signature.js"></script> -->
+        <script type="text/javascript" src="js/Signature.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>

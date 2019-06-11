@@ -214,20 +214,24 @@ class Maps {
       )
   }
 
-//Crée les marqueurs de la map 
+  //Crée les marqueurs de la map 
   getMarker(){
     let self = this
+
   // requête ajax pour afficher les informations sur les stations Velo'V de Lyon
     let request = new XMLHttpRequest()
     request.onreadystatechange = function() {
       if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
         self.response =  JSON.parse(this.responseText)
+        let reservation = new Reservation(document.getElementById("reservation-button"), document.getElementById("station-name"), document.getElementById("station-address"), document.getElementById("station-status"), document.getElementById("velov-number"), document.getElementById("map-info-station"), document.getElementById("error-info-station"), document.getElementById("map-reservation"), document.getElementById("delete"), document.getElementById("send"), document.getElementById("reservation-firstName"), document.getElementById("reservation-name"), document.getElementById("error-reservation"), document.getElementById("signature"), document.getElementById("form-reservation"), document.getElementById("confirmation-message"))
+        reservation.play()
       //On crée une boucle pour crée les objets marqueurs
-        for (var i = 0; i < self.response.length; i++) {
+        for (let i = 0; i < self.response.length; i++) {
           let station = new Station(self.response[i], document.getElementById("station-name"), document.getElementById("station-address"), document.getElementById("station-status"), document.getElementById("velov-number"))
           self.marker[i] = new google.maps.Marker({position: station.position, map: self.map, icon:{url:"images/station.png"}})
         //On crée un écouteur d'évenement qui une fois activé retourne les informations de la station selectionné
           self.marker[i].addListener('click', function() {
+            reservation.displayDivStationInfos()
             self.displayInfoStation(station)
           })
         }

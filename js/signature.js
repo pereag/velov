@@ -101,4 +101,9 @@ class Signature {
     this.canvas.width = this.canvas.width
   }
 
+//Sauvegarder la signature
+  saveSignature(){
+   return this.canvas.toDataURL() 
+  }
+
 }
