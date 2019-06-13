@@ -18,20 +18,18 @@ class Signature {
     document.addEventListener("mouseup", () => {
       this.drawing = false;
     }, false);
-    
     this.canvas.addEventListener("mousemove", (e) => {
       this.mousePos = this.getMousePos(this.canvas, e)
-    }, false);
-    
+    }, false);  
     window.requestAnimFrame = (() => {
-            return window.requestAnimationFrame || 
-                window.webkitRequestAnimationFrame ||
-                window.mozRequestAnimationFrame ||
-                window.oRequestAnimationFrame ||
-                window.msRequestAnimaitonFrame ||
-                function (callback) {
-            window.setTimeout(callback, 1000/60)
-                };
+      return window.requestAnimationFrame || 
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame ||
+      window.msRequestAnimaitonFrame ||
+      function (callback) {
+        window.setTimeout(callback, 1000/60)
+      };
     })();
 
     self = this
@@ -42,7 +40,6 @@ class Signature {
     loopRender() 
 
   // Tactile mobile
-
     this.canvas.addEventListener("touchstart", (e) => {
       this.mousePos = getTouchPos(this.canvas, e);
       var touch = e.touches[0];

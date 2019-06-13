@@ -1,5 +1,5 @@
 class Reservation {
-    constructor(reservationButton, stationNameId, stationAddressId, stationStatusId, velovNumberId, infoStationId, errorInfoStationId, reservationId, deleteId, sendId, reservationFirstNameId, reservationNameId, errorReservationId, signatureId, reservationFormId, confirmationMessageId){
+    constructor(reservationButton, stationNameId, stationAddressId, stationStatusId, velovNumberId, infoStationId, errorInfoStationId, reservationId, deleteId, sendId, reservationFirstNameId, reservationNameId, errorReservationId, signatureId, reservationFormId, confirmationMessageId, messageReservationId, messageReservationTimerId){
         this.reservationButton = reservationButton
         this.stationNameId = stationNameId
         this.stationAddressId = stationAddressId
@@ -17,6 +17,8 @@ class Reservation {
         this.reservationFormId = reservationFormId
         this.confirmationMessageId = confirmationMessageId
         this.clientSignature = false
+        this.messageReservationId = messageReservationId
+        this.messageReservationTimerId = messageReservationTimerId
     }
 
     //Afficher le formulaire
@@ -37,19 +39,24 @@ class Reservation {
                 this.displayDivReservationForm()
             }
         })
+    // Verification de la signature
         this.signatureId.addEventListener("click", () => {
             this.clientSignature = true
         })
+    // Ecoute le boutton Effacer
         this.deleteId.addEventListener("click", () => {
             signature.clearCanvas()
             this.clientSignature = false
         })
+    //Ecoute le boutton Réserver
         this.sendId.addEventListener("click", () => {
             if(this.reservationFirstNameId.value !== "" && this.reservationNameId.value !== "" ){
                 if (this.clientSignature == true) {
                     this.saveReservation()
-                this.reservationFormId.style.display = "none"
-                this.confirmationMessageId.innerHTML = "Votre réservation à bien était prise en compte."
+                    this.reservationFormId.style.display = "none"
+                    this.confirmationMessageId.innerHTML = "Votre réservation à bien était prise en compte."
+                    this.getReservation()
+                    this.displayMessageReservation()
                 }
                 else {
                     this.errorReservationId.innerHTML = "Signature invalide."
@@ -82,8 +89,24 @@ class Reservation {
             stationAdress: this.stationAddressId.textContent,
             signature: signature.saveSignature()
         }
-
         let reservation_json = JSON.stringify(reservation)
         sessionStorage.setItem("reservation", reservation_json)
     }
+
+//Recuperer les données dans le sessionStorage
+    getReservation(){
+        let sessionStorageReservation = sessionStorage.getItem("reservation")
+        this.reservationObject = JSON.parse(sessionStorageReservation)
+    }
+
+// Affiche le message de reservation dans la partie "Detaille de votre réservation"
+    displayMessageReservation(){
+        let timer = new Timer(1, 0)
+        console.log(this.reservationObject)
+        this.messageReservationId.innerHTML = "Votre réservation au nom de " + this.reservationObject.name + " " + this.reservationObject.firstName + ", localisé à la station " + this.reservationObject.stationName + " pret de " + this.reservationObject.stationAdress + " est disponible."
+    // Crée un Element p pour le timer et un élement Img pour l'image de la signature  
+    }
+
+// À la fin du timer on Efface le session storage et on informe l'expiration de la réservation 
+
 }

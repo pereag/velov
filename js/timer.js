@@ -5,7 +5,7 @@ class Timer {
         this.seconde = seconde
     }
 // Lance le décompte du minuteur
-    startTimer(){
+    startTimer(messageReservationTimer){
         let timerGo = setInterval(()=>{
             this.seconde = this.seconde - 1
             if(this.seconde == -1){
@@ -14,11 +14,11 @@ class Timer {
             }
 
             if(this.minute < 0 ){
-                console.log('Temps de réservation dépassé')
+                messageReservationTimer.innerHTML ='Temps de réservation dépassé'
                 window.clearInterval(timerGo)
             }
             else {
-                console.log(this.minute + ' minute(s) ' + this.seconde + 'seconde(s)')
+                messageReservationTimer.innerHTML = "La réservation expire dans " + this.minute + ' minute(s) et ' + this.seconde + ' seconde(s).'
             }
         }, 1000)
     }
