@@ -12,10 +12,9 @@ class Timer {
                 this.seconde = 59
                 this.minute = this.minute -1
             }
-
             if(this.minute < 0 ){
-                messageReservationTimer.innerHTML ='Temps de réservation dépassé'
                 window.clearInterval(timerGo)
+                messageReservationTimer.innerHTML = "La réservation n'est plus disponnible."
             }
             else {
                 messageReservationTimer.innerHTML = "La réservation expire dans " + this.minute + ' minute(s) et ' + this.seconde + ' seconde(s).'

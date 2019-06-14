@@ -320,7 +320,7 @@
 /**------------------------------------------------------------------
                             RESERVATION
 ------------------------------------------------------------------**/
-    .reservation-box {
+    #reservation-box {
         margin:100px auto 200px auto;
         width: 70%;
         text-align: center;
@@ -332,6 +332,9 @@
         margin: 40px auto 20px auto;
 
         background-color: white;
+    }
+    #img-signature {
+        margin: 40px;
     }
 /**------------------------------------------------------------------
                             FOOTER

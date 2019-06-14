@@ -1,5 +1,5 @@
 class Reservation {
-    constructor(reservationButton, stationNameId, stationAddressId, stationStatusId, velovNumberId, infoStationId, errorInfoStationId, reservationId, deleteId, sendId, reservationFirstNameId, reservationNameId, errorReservationId, signatureId, reservationFormId, confirmationMessageId, messageReservationId, messageReservationTimerId){
+    constructor(reservationButton, stationNameId, stationAddressId, stationStatusId, velovNumberId, infoStationId, errorInfoStationId, reservationId, deleteId, sendId, reservationFirstNameId, reservationNameId, errorReservationId, signatureId, reservationFormId, confirmationMessageId, messageReservationId, messageReservationTimerId, reservationBoxId){
         this.reservationButton = reservationButton
         this.stationNameId = stationNameId
         this.stationAddressId = stationAddressId
@@ -19,6 +19,8 @@ class Reservation {
         this.clientSignature = false
         this.messageReservationId = messageReservationId
         this.messageReservationTimerId = messageReservationTimerId
+        this.reservationBoxId = reservationBoxId
+        this.timerStatus = null
     }
 
     //Afficher le formulaire
@@ -101,12 +103,21 @@ class Reservation {
 
 // Affiche le message de reservation dans la partie "Detaille de votre réservation"
     displayMessageReservation(){
-        let timer = new Timer(1, 0)
-        console.log(this.reservationObject)
-        this.messageReservationId.innerHTML = "Votre réservation au nom de " + this.reservationObject.name + " " + this.reservationObject.firstName + ", localisé à la station " + this.reservationObject.stationName + " pret de " + this.reservationObject.stationAdress + " est disponible."
-    // Crée un Element p pour le timer et un élement Img pour l'image de la signature  
+        this.messageReservationId.innerHTML = "Vous venez de passer une réservation au nom de " + this.reservationObject.name + " " + this.reservationObject.firstName + ", localisé à la station " + this.reservationObject.stationName + " pret de " + this.reservationObject.stationAdress + "."
+    // Crée un Element p pour le timer
+        let newElementTimer = document.createElement("p")
+            newElementTimer.id = "reservation-box-timer"
+        this.reservationBoxId.appendChild(newElementTimer)
+        let timer = new Timer(0, 30,)
+        this.timerStatus = true
+        timer.startTimer(newElementTimer, this.timerStatus)
+    // Crée un élement imag pour la signature
+        let newElementImg = document.createElement("img")
+        newElementImg.id = "img-signature"
+        newElementImg.alt = "Signature"
+        newElementImg.src = this.reservationObject.signature
+        this.reservationBoxId.appendChild(newElementImg)
     }
-
-// À la fin du timer on Efface le session storage et on informe l'expiration de la réservation 
+// À la fin du timer on Efface le session storage et on informe de l'expiration de la réservation 
 
 }
