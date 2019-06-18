@@ -108,7 +108,7 @@ class Reservation {
         let newElementTimer = document.createElement("p")
             newElementTimer.id = "reservation-box-timer"
         this.reservationBoxId.appendChild(newElementTimer)
-        let timer = new Timer(0, 30,)
+        let timer = new Timer(20, 0,)
         this.timerStatus = true
         timer.startTimer(newElementTimer, this.timerStatus)
     // Crée un élement imag pour la signature
@@ -118,6 +118,5 @@ class Reservation {
         newElementImg.src = this.reservationObject.signature
         this.reservationBoxId.appendChild(newElementImg)
     }
-// À la fin du timer on Efface le session storage et on informe de l'expiration de la réservation 
-
 }
+

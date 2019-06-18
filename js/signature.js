@@ -102,5 +102,4 @@ class Signature {
   saveSignature(){
    return this.canvas.toDataURL() 
   }
-
 }
