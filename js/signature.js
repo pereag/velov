@@ -32,7 +32,7 @@ class Signature {
       };
     })();
 
-    self = this
+    let self = this
     function loopRender(){
       requestAnimFrame(loopRender)
       self.renderCanvas()
@@ -42,8 +42,8 @@ class Signature {
   // Tactile mobile
     this.canvas.addEventListener("touchstart", (e) => {
       this.mousePos = getTouchPos(this.canvas, e);
-      var touch = e.touches[0];
-      var mouseEvent = new MouseEvent("mousedown", {
+      let touch = e.touches[0];
+      let mouseEvent = new MouseEvent("mousedown", {
         clientX: touch.clientX,
         clientY: touch.clientY
     });
@@ -52,12 +52,12 @@ class Signature {
     }, false);
 
     this.canvas.addEventListener("touchend",  () => {
-    var mouseEvent = new MouseEvent("mouseup", {});
+    let mouseEvent = new MouseEvent("mouseup", {});
     this.canvas.dispatchEvent(mouseEvent);
     }, false);
     this.canvas.addEventListener("touchmove", (e) => {
-    var touch = e.touches[0];
-    var mouseEvent = new MouseEvent("mousemove", {
+    let touch = e.touches[0];
+    let mouseEvent = new MouseEvent("mousemove", {
       clientX: touch.clientX,
       clientY: touch.clientY
     });
@@ -65,7 +65,7 @@ class Signature {
     }, false);
 
     function getTouchPos(canvasDom, touchEvent) {
-      var rect = canvasDom.getBoundingClientRect();
+      let rect = canvasDom.getBoundingClientRect();
       return {
         x: touchEvent.touches[0].clientX - rect.left,
         y: touchEvent.touches[0].clientY - rect.top
@@ -75,7 +75,7 @@ class Signature {
 
 // Donne la position de la souris
   getMousePos(canvasDom, mouseEvent) {
-      var rect = canvasDom.getBoundingClientRect()
+      let rect = canvasDom.getBoundingClientRect()
       return {
         x: mouseEvent.clientX - rect.left,
         y: mouseEvent.clientY - rect.top
@@ -105,3 +105,4 @@ class Signature {
 }
 
 export default Signature
+

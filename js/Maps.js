@@ -1,5 +1,5 @@
-import Station from "./Station"
 import Reservation from "./Reservation"
+import Station from "./Station"
 class Maps {
   constructor(id, x, y, zoomMap){
       this.id = id

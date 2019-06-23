@@ -5,7 +5,9 @@ class Loader {
     }
 // Change la clave de la div loader 
     play(){
-            this.pageLoader.classList.add("desactive-loader")   
+        window.setTimeout(()=> {
+            this.pageLoader.classList.add("desactive-loader")
+        }, 300)   
     }
 
 }

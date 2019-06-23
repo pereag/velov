@@ -1,5 +1,5 @@
-import Timer from "./Timer"
 import Signature from "./Signature"
+import Timer from "./Timer"
 class Reservation {
     constructor(reservationButton, stationNameId, stationAddressId, stationStatusId, velovNumberId, infoStationId, errorInfoStationId, reservationId, deleteId, sendId, reservationFirstNameId, reservationNameId, errorReservationId, signatureId, reservationFormId, confirmationMessageId, messageReservationId, messageReservationTimerId, reservationBoxId){
         this.reservationButton = reservationButton
@@ -23,6 +23,7 @@ class Reservation {
         this.messageReservationTimerId = messageReservationTimerId
         this.reservationBoxId = reservationBoxId
         this.timerStatus = null
+        this.signatureObject
     }
 
     //Afficher le formulaire
@@ -38,8 +39,8 @@ class Reservation {
                 if(this.errorInfoStationId.innerHTML !== "" ){
                     this.errorInfoStationId.innerHTML = ""
                 }
-                signature = new Signature(this.signatureId)
-                signature.play()
+                this.signatureObject = new Signature(this.signatureId)
+                this.signatureObject.play()
                 this.displayDivReservationForm()
             }
         })
@@ -49,7 +50,7 @@ class Reservation {
         })
     // Ecoute le boutton Effacer
         this.deleteId.addEventListener("click", () => {
-            signature.clearCanvas()
+            this.signatureObject.clearCanvas()
             this.clientSignature = false
         })
     //Ecoute le boutton Réserver
@@ -91,7 +92,7 @@ class Reservation {
             firstName: this.reservationFirstNameId.value.charAt(0).toUpperCase() + this.reservationFirstNameId.value.substring(1).toLowerCase(),
             stationName: this.stationNameId.textContent,
             stationAdress: this.stationAddressId.textContent,
-            signature: signature.saveSignature()
+            signature: this.signatureObject.saveSignature()
         }
         let reservation_json = JSON.stringify(reservation)
         sessionStorage.setItem("reservation", reservation_json)
@@ -123,4 +124,3 @@ class Reservation {
 }
 
 export default Reservation
-

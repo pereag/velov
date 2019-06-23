@@ -115,13 +115,11 @@ class Slideshow {
             }
             else if(button == this.stopButton){
                 if(this.autoPlay !== null){
-                    console.log('pause')
                     this.stop()
                     this.stopButtonPause.classList.replace(this.valueButtonActive, this.valueButtonDesactive)
                     this.stopButtonPlay.classList.replace(this.valueButtonDesactive, this.valueButtonActive)
                 }
                 else {
-                    console.log('restart' + this.valueButtonDesactive)
                     this.restart()
                     this.stopButtonPause.classList.replace(this.valueButtonDesactive, this.valueButtonActive)
                     this.stopButtonPlay.classList.replace(this.valueButtonActive, this.valueButtonDesactive)
