@@ -1,3 +1,5 @@
+import Station from "./Station"
+import Reservation from "./Reservation"
 class Maps {
   constructor(id, x, y, zoomMap){
       this.id = id
@@ -261,3 +263,5 @@ class Maps {
     station.velovNumberId.innerHTML = station.velovNumber
   }
 }
+
+export default Maps

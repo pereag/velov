@@ -103,3 +103,5 @@ class Signature {
    return this.canvas.toDataURL() 
   }
 }
+
+export default Signature

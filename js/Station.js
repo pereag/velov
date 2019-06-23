@@ -11,3 +11,5 @@ class Station {
         this.position = element.position
     }
 }
+
+export default Station

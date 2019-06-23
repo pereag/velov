@@ -30,7 +30,7 @@ class MobileMenu {
     }
     listenSizeWindow(){
         setInterval(() => {
-            if(window.innerWidth > 800) {
+            if(window.innerWidth > 900) {
                 if(this.contentMobileMenu.classList.contains("mobileMenu_active")){
                     this.contentMobileMenu.classList.replace("mobileMenu_active", "mobileMenu_disable")
                     if(this.backgroundMobileMenu.classList.contains("mobileMenu-background_active")) {
@@ -41,3 +41,5 @@ class MobileMenu {
         }, 150)
     }
 }
+
+export default MobileMenu

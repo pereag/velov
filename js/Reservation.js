@@ -1,3 +1,5 @@
+import Timer from "./Timer"
+import Signature from "./Signature"
 class Reservation {
     constructor(reservationButton, stationNameId, stationAddressId, stationStatusId, velovNumberId, infoStationId, errorInfoStationId, reservationId, deleteId, sendId, reservationFirstNameId, reservationNameId, errorReservationId, signatureId, reservationFormId, confirmationMessageId, messageReservationId, messageReservationTimerId, reservationBoxId){
         this.reservationButton = reservationButton
@@ -103,7 +105,7 @@ class Reservation {
 
 // Affiche le message de reservation dans la partie "Detaille de votre réservation"
     displayMessageReservation(){
-        this.messageReservationId.innerHTML = "Vous venez de passer une réservation au nom de " + this.reservationObject.name + " " + this.reservationObject.firstName + ", localisé à la station " + this.reservationObject.stationName + " pret de " + this.reservationObject.stationAdress + "."
+        this.messageReservationId.innerHTML = "Vous venez de passer une réservation au nom de " + this.reservationObject.name + " " + this.reservationObject.firstName + ", localisé à la station " + this.reservationObject.stationName + " prêt de " + this.reservationObject.stationAdress + "."
     // Crée un Element p pour le timer
         let newElementTimer = document.createElement("p")
             newElementTimer.id = "reservation-box-timer"
@@ -119,4 +121,6 @@ class Reservation {
         this.reservationBoxId.appendChild(newElementImg)
     }
 }
+
+export default Reservation
 

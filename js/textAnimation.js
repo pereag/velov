@@ -8,3 +8,5 @@ class TextAnimation {
         this.text.style.transition = "opacity 3s";
     }
 }
+
+export default TextAnimation
