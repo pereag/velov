@@ -13,6 +13,7 @@ class Slideshow {
         this.arrowRight = false
         this.time = time
         this.image = 1
+        this.mobileVersion
         this.autoPlay = window.setInterval(() => {
             if(this.manualPlay){
             }
@@ -31,12 +32,23 @@ class Slideshow {
         this.manualPlay(this.rightButton)
         this.manualPlay(this.stopButton)
     }
-
+// Image par défault 
+    DisplayDefaultFirstImage() {
+        if(window.innerWidth > 900) {
+            this.Default
+        }
+    }
 // Change le background du diaporama 
     changeImage() {
-        this.id.style.background = 'url(images/image-'+ this.image + '.jpg)'
+            if(this.mobileVersion == false) {
+                this.id.style.background = 'url(images/image-'+ this.image + '.jpg) no-repeat center center'
+                this.id.style.backgroundSize = '100%'
+            }
+            else if(this.mobileVersion == true) {
+                this.id.style.background = 'url(images/image-'+ this.image + '-mobile.jpg) no-repeat center center'
+                this.id.style.backgroundSize = '100%'
+            }
     }
-
 // Affiche l'image précedente 
     previous(){
         this.image = this.image - 1
@@ -77,16 +89,35 @@ class Slideshow {
 
 // Affiche le bouton de lecture
     displayStopButton(){
-        this.id.addEventListener("mouseover", () =>{
+        this.stopButton.addEventListener("mouseover", () =>{
             document.getElementById("slideshow-pausePlayButton").classList.replace("mouseOut", "mouseOn")
         })
-        this.id.addEventListener("mouseout", () => {
+        this.stopButton.addEventListener("mouseout", () => {
             document.getElementById("slideshow-pausePlayButton").classList.replace("mouseOn", "mouseOut")
         })
     }
+// Change la taille de la hauteur en temps réel
+    listenWidthEvent() {
+        window.setInterval(() => {
+            if(window.innerWidth > 900) {
+                this.mobileVersion = false
+                console.log(window.innerWidth)
+                this.id.style.height =  this.id.offsetWidth * 0.33 + "px"
+                this.stopButton.style.height = this.stopButton.offsetWidth * 0.65 + "px"
 
+            }
+            else {
+                console.log(window.innerWidth)
+                this.mobileVersion = true
+                this.id.style.height = this.id.offsetWidth * 0.78 + "px"
+                this.stopButton.style.height = this.stopButton.offsetWidth * 0.8 + "px"
+            }
+            this.changeImage()
+        }, 100)
+    }
 // Vérifie et applique l'action correspondant aux commandes du clavier et du diaporama
     manualPlay(button){
+        this.listenWidthEvent()
          button.addEventListener('click', () => {
             if(button ==  this.leftButton ){
                 if(this.image  > 1){

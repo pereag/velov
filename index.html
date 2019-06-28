@@ -11,13 +11,13 @@
     <body>
 <!-------------------------------------- HEADER -------------------------------------------->     
         <header>
-                <img id="logo" src="images/logo.png" alt="logo">
+                <img id="logo" draggable="false" src="images/logo.png" alt="logo">
                 <ul class="header-list">
                     <li><a href="#info">INFO</a></li>
                     <li><a href="#map">CARTE</a></li>
                     <li><a href="#reservation">RÉSERVATION</a></li>
                 </ul>
-                <img id="header-mobileImg" src="images/menu.png" alt="menu mobile">
+                <img id="header-mobileImg" draggable="false" src="images/menu.png" alt="menu mobile">
         </header>
         <div id="mobileMenu" class="mobileMenu_disable">
             <ul id ="mobileMenu-buttonGroupe">
@@ -41,22 +41,40 @@
             </div>
             <div id="info-slideshow"class="info-slideshow">
                 <div class="info-slideshow-buttons">
-                    <div id = "slideshow-leftButton" class="info-slideshow-button-left info-slideshow-button">
-                        <img class="arrow arrow-left" src="images/arrow-left.png" alt="arrow left">
+                    <div id = "slideshow-leftButton" class="info-slideshow-button">
+                        <div class="slideshow-wrapper-button">
+                            <div class="button-wrapper">
+                                <img class="arrow arrow-left" draggable="false" src="images/arrow-left.png" alt="arrow left">    
+                            </div>
+                        </div>
                     </div>
-                    <div id="slideshow-pausePlayButton" class="info-slideshow-button-pausePlay mouseOut">
-                        <img id="pause" class="pausePlay pause pausePlay_active" src="images/pause-button.png" alt="pause button">
-                        <img id="play" class="pausePlay play pausePlay_desactive" src="images/play-button.png" alt="play button">
+                    <div class="slideshow-wrapper-centerButton">
+                        <div id ="background-buttonPlayPause"class="button-wrapper">
+                            <div id="slideshow-pausePlayButton"  class="mouseOut">
+                                <div class="buttonPausePlay-wrapper"> 
+                                        <img id="pause" class="pausePlay pause pausePlay_active" draggable="false" src="images/pause-button.png" alt="pause button">
+                                        <img id="play" class="pausePlay play pausePlay_desactive" draggable="false" src="images/play-button.png" alt="play button">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div id = "slideshow-rightButton" class="info-slideshow-button-right info-slideshow-button">
-                        <img class="arrow arrow-right"src="images/arrow-right.png" alt="arrow right">
+                    <div id ="slideshow-rightButton" class="info-slideshow-button">
+                        <div class="slideshow-wrapper-button">
+                            <div class="button-wrapper">
+                                <img class="arrow arrow-right" draggable="false" src="images/arrow-right.png" alt="arrow right"> 
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="info-slideshow-images">
-                    <img src="images/image-1.jpg" alt="image 1">
-                    <img src="images/image-2.jpg" alt="image 2">
-                    <img src="images/image-3.jpg" alt="image 3">
-                    <img src="images/image-4.jpg" alt="image 4">
+                    <img src="images/image-1.jpg" draggable="false" alt="image 1">
+                    <img src="images/image-2.jpg" draggable="false" alt="image 2">
+                    <img src="images/image-3.jpg" draggable="false" alt="image 3">
+                    <img src="images/image-4.jpg" draggable="false" alt="image 4">
+                    <img src="images/image-1-mobile.jpg" draggable="false" alt="image 1 mobile">
+                    <img src="images/image-2-mobile.jpg" draggable="false" alt="image 2 mobile">
+                    <img src="images/image-3-mobile.jpg" draggable="false" alt="image 3 mobile">
+                    <img src="images/image-4-mobile.jpg" draggable="false" alt="image 4 moblie">
                 </div>
             </div>
         </section>
@@ -123,14 +141,10 @@
         <section id="reservation" class="reservation">
             <div class="title-groupe">
                     <hr class="red-line">
-                <h2 class="reservation-title">DETAILS DE VOTRE RÉSERVATION</h2>
+                <h2 class="reservation-title">DÉTAILS DE VOTRE RÉSERVATION</h2>
             </div>
             <div id="reservation-box">
                 <p id="reservation-box-text">Veuillez sélectionner une station sur la carte puis compléter le formulaire.</p><br>
-                <!-----
-                <p id="reservation-box-timer"></p>
-                <img id="reservation-box-signature" src="" alt="signature">
-                ---->
             </div>
         </section>
 <!---------------------------------------------- FOOTER --------------------------------------------------->
@@ -140,8 +154,8 @@
 <!----------------------------------------------- LOADER -------------------------------------------------->        
         <div id="loader">
             <div class="loader-content">
-                <img src="images/logo.png" alt="logo"><br>
-                <img id="loader-icon" src="images/loader.png" alt="icone de chargement">
+                <img src="images/logo.png" draggable="false" alt="logo"><br>
+                <img id="loader-icon" src="images/loader.png" draggable="false" alt="icone de chargement">
             </div>
         </div>
         <div style="background:pink;color:#333;position:fixed;right:0;bottom:0;z-index:99999999;font:1em arial;opacity:.9" id="ld"></div><script>setInterval(function(){if($(window).height()>=$(document).height()){$('#ld').text($(document).width()+' px');}else{$('#ld').text($(document).width()+17+' px');}},150);</script>
@@ -149,15 +163,5 @@
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7FK5RF5_zBNe3PgQH9btW1o_aXA3sPhw"></script>
         <script src="./polyfill.bundle.js"></script>
         <script src="./app.bundle.js"></script>
-        <!--<script type="text/javascript" src="js/Timer.js"></script>
-        <script type="text/javascript" src="js/Maps.js"></script>
-        <script type="text/javascript" src="js/TextAnimation.js"></script>
-        <script type="text/javascript" src="js/MobileMenu.js"></script>
-        <script type="text/javascript" src="js/Slideshow.js"></script>
-        <script type="text/javascript" src="js/Loader.js"></script>
-        <script type="text/javascript" src="js/Reservation.js"></script>
-        <script type="text/javascript" src="js/Station.js"></script>
-        <script type="text/javascript" src="js/Signature.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>-->
     </body>
 </html>

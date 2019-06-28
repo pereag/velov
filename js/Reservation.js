@@ -45,7 +45,10 @@ class Reservation {
             }
         })
     // Verification de la signature
-        this.signatureId.addEventListener("click", () => {
+        this.signatureId.addEventListener("mousedown", () => {
+            this.clientSignature = true
+        })
+        this.signatureId.addEventListener("touchstart", () => {
             this.clientSignature = true
         })
     // Ecoute le boutton Effacer

@@ -46,7 +46,7 @@
     input[type=text] {
         border:none;
         margin: 5px auto 5px auto;
-        padding: 0.8rem 2rem 0.8rem 2rem;
+        padding: 15px;
         width: 90%;
         border-radius: 5px;
         font-size: 15px;
@@ -81,7 +81,7 @@
         background-color:red;
     }
     .title-groupe {margin: 20px 10% 50px 10%;}
-    button, .info-slideshow-button, .info-slideshow-button-pausePlay, #header-mobileImg{cursor:pointer}
+    button, .info-slideshow-button, #slideshow-pausePlayButton, #header-mobileImg{cursor:pointer}
     #loader {
         position: fixed;
         top: 0;
@@ -100,6 +100,15 @@
         margin-top: -51px;
         margin-left: -56px;
     }
+    body {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    a:active{outline : none;}
     .red-line-small{color: red;}
     #loader-icon {-webkit-animation: rotation 4s infinite linear;}
     @-webkit-keyframes rotation {
@@ -209,12 +218,19 @@
 /**------------------------------------------------------------------
                               INFO
 ------------------------------------------------------------------**/
-    .info-slideshow {
+.arrow {
+    width: 47%;
+}
+#pause, #play{
+    width: 30%;
+} 
+.info-slideshow {
         width:90%;
         height: 580px;
         margin:auto;
         box-shadow: 0px 0px 30px grey;
-        background: url('../images/image-1.jpg');
+        background: url('../images/image-1.jpg') no-repeat center;
+        background-size: 100%;
     }
 
     .info-slideshow-buttons {
@@ -223,34 +239,32 @@
         height: 100%;
     }
     .info-slideshow-button {
-        height:100%;
         background-color:black;
         opacity: 0.5;
         z-index: 2;
+       width:10%;
     }
-    .arrow {
-        position: relative;
-        top:43%;
-        margin:0px 50px 0px 50px;
+    .button-wrapper {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
     }
     .info-slideshow-images {
         display: none;
     }
-    .info-slideshow-button-pausePlay {
-        position: relative;
-        top:230px;
-        width: 150px;
-        height: 120px;
-        border-radius: 20px;
+    #slideshow-pausePlayButton {
+        width: 12%;
+        border-radius: 18%;
         background-color: black;
         opacity: 0;
         text-align: center;
+        display: table;
+        margin: auto;
     }
     .pausePlay_desactive {display: none;}
     .pausePlay_active {
         display: inline;
         position: relative;
-        top:35px;
     }
     .mouseOn {
         transition: opacity 0.7s;
@@ -260,9 +274,23 @@
         transition: opacity 0.7s;
         opacity: 0;
     }
-    .info-slideshow-button:hover, .info-slideshow-button-pausePlay:hover {
+    .info-slideshow-button:hover, #slideshow-pausePlayButton:hover {
         transition: opacity 0.5s;
         opacity: 0.8;
+    }
+    .slideshow-wrapper-button{
+        display:table;
+        width: 100%;
+        height: 100%;
+    }
+    .slideshow-wrapper-centerButton {
+        display: table;
+        height: 100%;
+        width:80%;
+    }
+    .buttonPausePlay-wrapper{
+        display: table-cell;
+        vertical-align: middle;
     }
 /**------------------------------------------------------------------
                               MAP
@@ -340,7 +368,11 @@
         width: 70%;
         text-align: center;
     }
-    #img-signature {margin: 40px;}
+    #img-signature {
+        margin: 40px auto 40px auto;
+        width: 240px;
+        height: 120px;
+    }
 /**------------------------------------------------------------------
                             FOOTER
 ------------------------------------------------------------------**/
@@ -400,6 +432,9 @@
         section {
             padding: 50px 0px 50px 0px;
         }
+        .info-slideshow {
+            height: 464px;
+        }
     }
     @media screen and (max-width: 900px){
         h1 {
@@ -429,13 +464,20 @@
             margin-right: auto;
             margin-left:auto;
         }
+        .info-slideshow {
+            width:100%
+        }
     }
     @media screen and (max-width: 525px){
-        .button-group {
-            flex-direction: column-reverse;
+        button {
+            font-size: 12px;
+            padding: 1rem 2rem 1rem 2rem;
         }
         .map-content-right {
             width: 100%;
+        }
+        .button-group {
+            width: auto;
         }
     }
     
