@@ -7,9 +7,10 @@ class Signature {
       this.drawing = false
       this.mousePos = { x:0, y:0 }
       this.lastPos = this.mousePos
+      this.bodyElement = document.body
   }
 
-// initialise la signature
+// Initialise la signature
   play() {
     this.canvas.addEventListener("mousedown", (e) => {
       this.drawing = true;
@@ -41,6 +42,9 @@ class Signature {
 
   // Tactile mobile
     this.canvas.addEventListener("touchstart", (e) => {
+      if(this.bodyElement.classList.contains("stop-scrolling") == false){
+        this.bodyElement.classList.add("stop-scrolling")
+      }
       this.mousePos = getTouchPos(this.canvas, e);
       let touch = e.touches[0];
       let mouseEvent = new MouseEvent("mousedown", {
@@ -51,9 +55,12 @@ class Signature {
     this.canvas.dispatchEvent(mouseEvent);
     }, false);
 
-    this.canvas.addEventListener("touchend",  () => {
-    let mouseEvent = new MouseEvent("mouseup", {});
-    this.canvas.dispatchEvent(mouseEvent);
+    this.canvas.addEventListener("touchend",  (e) => {
+      if(this.bodyElement.classList.contains("stop-scrolling") == true){
+        this.bodyElement.classList.remove("stop-scrolling")
+      }
+      let mouseEvent = new MouseEvent("mouseup", {});
+      this.canvas.dispatchEvent(mouseEvent);
     }, false);
     this.canvas.addEventListener("touchmove", (e) => {
     let touch = e.touches[0];
@@ -72,7 +79,6 @@ class Signature {
       };
     }
   }
-
 // Donne la position de la souris
   getMousePos(canvasDom, mouseEvent) {
       let rect = canvasDom.getBoundingClientRect()
@@ -103,6 +109,7 @@ class Signature {
    return this.canvas.toDataURL() 
   }
 }
+// Desactiver le défilement
 
 export default Signature
 

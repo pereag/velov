@@ -101,13 +101,11 @@ class Slideshow {
         window.setInterval(() => {
             if(window.innerWidth > 900) {
                 this.mobileVersion = false
-                console.log(window.innerWidth)
                 this.id.style.height =  this.id.offsetWidth * 0.33 + "px"
                 this.stopButton.style.height = this.stopButton.offsetWidth * 0.65 + "px"
 
             }
             else {
-                console.log(window.innerWidth)
                 this.mobileVersion = true
                 this.id.style.height = this.id.offsetWidth * 0.78 + "px"
                 this.stopButton.style.height = this.stopButton.offsetWidth * 0.8 + "px"

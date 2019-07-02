@@ -108,6 +108,10 @@
         -ms-user-select: none;
         user-select: none;
     }
+    .stop-scrolling {
+        height: 100%;
+        overflow: hidden;
+    }
     a:active{outline : none;}
     .red-line-small{color: red;}
     #loader-icon {-webkit-animation: rotation 4s infinite linear;}
