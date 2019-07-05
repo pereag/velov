@@ -109,7 +109,6 @@ class Signature {
    return this.canvas.toDataURL() 
   }
 }
-// Desactiver le défilement
 
 export default Signature
 

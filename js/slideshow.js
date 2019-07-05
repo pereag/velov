@@ -32,13 +32,7 @@ class Slideshow {
         this.manualPlay(this.rightButton)
         this.manualPlay(this.stopButton)
     }
-// Image par défault 
-    DisplayDefaultFirstImage() {
-        if(window.innerWidth > 900) {
-            this.Default
-        }
-    }
-// Change le background du diaporama 
+// Change le background du diaporama à chaque changement de diapo
     changeImage() {
             if(this.mobileVersion == false) {
                 this.id.style.background = 'url(images/image-'+ this.image + '.jpg) no-repeat center center'
@@ -67,12 +61,6 @@ class Slideshow {
         this.autoPlay = null
     }
 
-// Affiche le premier
-    goFirstImage(){
-        this.image = 1
-        this.changeImage()
-    }
-
 // Redémarre le diaporama 
     restart() {
         this.autoPlay = window.setInterval(() => {
@@ -87,6 +75,12 @@ class Slideshow {
         }, this.time) 
     }
 
+// Affiche le premier diapo
+    goFirstImage(){
+        this.image = 1
+        this.changeImage()
+    }
+
 // Affiche le bouton de lecture
     displayStopButton(){
         this.stopButton.addEventListener("mouseover", () =>{
@@ -96,7 +90,8 @@ class Slideshow {
             document.getElementById("slideshow-pausePlayButton").classList.replace("mouseOn", "mouseOut")
         })
     }
-// Change la taille de la hauteur en temps réel
+
+// Change la taille de la hauteur en temps réel du diaporama
     listenWidthEvent() {
         window.setInterval(() => {
             if(window.innerWidth > 900) {
@@ -113,7 +108,8 @@ class Slideshow {
             this.changeImage()
         }, 100)
     }
-// Vérifie et applique l'action correspondant aux commandes du clavier et du diaporama
+
+// Vérifie un bouton ou une touche du clavier et applique l'action correspondant
     manualPlay(button){
         this.listenWidthEvent()
          button.addEventListener('click', () => {

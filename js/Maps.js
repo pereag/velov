@@ -8,6 +8,7 @@ class Maps {
       this.zoomMap = zoomMap
       this.marker = []
       this.response = false
+      this.reservation = new Reservation(document.getElementById("reservation-button"), document.getElementById("station-name"), document.getElementById("station-address"), document.getElementById("station-status"), document.getElementById("velov-number"), document.getElementById("map-info-station"), document.getElementById("error-info-station"), document.getElementById("map-reservation"), document.getElementById("delete"), document.getElementById("send"), document.getElementById("reservation-firstName"), document.getElementById("reservation-name"), document.getElementById("error-reservation"), document.getElementById("signature"), document.getElementById("form-reservation"), document.getElementById("confirmation-message"), document.getElementById("reservation-box-text"), document.getElementById("reservation-box-timer"), document.getElementById("reservation-box"), 1200000)
       this.mapStyle = [
           {
             "elementType": "geometry",
@@ -200,8 +201,10 @@ class Maps {
               }
             ]
           }
-      ]        
+      ]
+      this.reservation.displayCurrentReservation()      
     }
+
 
 // Appel les fonctions pour l'initialisation des marqueurs et de la map
   play(){
@@ -216,7 +219,7 @@ class Maps {
       )
   }
 
-  // Crée les marqueurs de la map 
+// Crée les marqueurs de la map 
   getMarker(){
     let self = this
 
@@ -226,18 +229,17 @@ class Maps {
       if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
         self.response =  JSON.parse(this.responseText)
       // On initialise l'objet Reservation avant la boucle 
-        let reservation = new Reservation(document.getElementById("reservation-button"), document.getElementById("station-name"), document.getElementById("station-address"), document.getElementById("station-status"), document.getElementById("velov-number"), document.getElementById("map-info-station"), document.getElementById("error-info-station"), document.getElementById("map-reservation"), document.getElementById("delete"), document.getElementById("send"), document.getElementById("reservation-firstName"), document.getElementById("reservation-name"), document.getElementById("error-reservation"), document.getElementById("signature"), document.getElementById("form-reservation"), document.getElementById("confirmation-message"), document.getElementById("reservation-box-text"), document.getElementById("reservation-box-timer"), document.getElementById("reservation-box"))
-        reservation.play()
+        self.reservation.play()
       // On crée une boucle pour crée les objets Marqueurs et Stations
         for (let i = 0; i < self.response.length; i++) {
           let station = new Station(self.response[i], document.getElementById("station-name"), document.getElementById("station-address"), document.getElementById("station-status"), document.getElementById("velov-number"))
           self.marker[i] = new google.maps.Marker({position: station.position, map: self.map, icon:{url:"images/station.png"}})
         // On crée un écouteur d'évenement qui une fois activé retourne les informations de la station selectionné
           self.marker[i].addListener('click', function() {
-            if(reservation.errorReservationId.innerHTML !== "" ){
-              reservation.errorReservationId.innerHTML = ""
+            if(self.reservation.errorReservationId.innerHTML !== "" ){
+              self.reservation.errorReservationId.innerHTML = ""
           }
-            reservation.displayDivStationInfos()
+            self.reservation.displayDivStationInfos()
             self.displayInfoStation(station)
           })
         }

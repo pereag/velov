@@ -5,7 +5,6 @@ class MobileMenu {
         this.buttonsMobilesMenu = buttonsMobilesMenu
         this.contentMobileMenu = contentMobileMenu
     }
-
     play(){
         this.displayContentMobileMenu(this.buttonMobileMenu)
         this.displayContentMobileMenu(this.backgroundMobileMenu)
@@ -27,7 +26,7 @@ class MobileMenu {
                 }
             }
         })
-    }
+    }   
     listenSizeWindow(){
         setInterval(() => {
             if(window.innerWidth > 900) {
