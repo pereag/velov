@@ -62,9 +62,10 @@ class Reservation {
             this.signatureObject.clearCanvas()
             this.clientSignature = false
         })
-    //Ecoute le boutton Réserver
+    //Ecoute le boutton Réserver 
         this.sendId.addEventListener("click", () => {
-            if(this.reservationFirstNameId.value !== "" && this.reservationNameId.value !== "" ){
+            let regex = RegExp(/^[a-zA-ZàâæçéèêëîïôœùûüÿÀÂÆÇnÉÈÊËÎÏÔŒÙÛÜŸ ]+$/)
+            if(regex.test(this.reservationFirstNameId.value) && regex.test(this.reservationNameId.value)){
                 if (this.clientSignature == true) {
                     this.saveReservation()
                     this.saveName()
