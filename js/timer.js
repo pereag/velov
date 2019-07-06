@@ -26,7 +26,7 @@ class Timer {
                 messageReservationTimer.innerHTML = "La réservation n'est plus disponnible."
             }
             else {
-                messageReservationTimer.innerHTML = "La réservation expire dans " + this.hours + " heur(s), "  + this.minutes + " minute(s) et " + this.seconds + " seconde(s)."
+                messageReservationTimer.innerHTML = "La réservation expire dans " + this.hours + " heure(s), "  + this.minutes + " minute(s) et " + this.seconds + " seconde(s)."
             }
         }, 1000)
     }

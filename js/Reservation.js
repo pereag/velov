@@ -96,7 +96,7 @@ class Reservation {
     }
     displayInfoMessage() {
         this.reservationFormId.style.display = "none"
-        this.confirmationMessageId.innerHTML = "Votre réservation à bien était prise en compte."
+        this.confirmationMessageId.innerHTML = 'Vous avez une réservation en cours, pour plus de détails allez dans la partie "détails de votre réservation".'
     }
 
 // Sauvegarde les données de la réservation sur le sessionStorage
@@ -156,7 +156,7 @@ class Reservation {
         let timer = new Timer(this.reservationObject.endDate)
         this.timerStatus = true
         timer.startTimer(newElementTimer)
-    // Crée un élement imag pour la signature
+    // Crée un élement image pour la signature
         let newElementImg = document.createElement("img")
         newElementImg.id = "img-signature"
         newElementImg.alt = "Signature"
