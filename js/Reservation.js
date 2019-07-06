@@ -43,11 +43,9 @@ class Reservation {
                     this.errorInfoStationId.innerHTML = ""
                 }
                 else{
-                    if(localStorage.reservation = null) {
-                        this.signatureObject = new Signature(this.signatureId)
-                        this.signatureObject.play()
-                        this.displayCurrentName()
-                    }
+                    this.signatureObject = new Signature(this.signatureId)
+                    this.signatureObject.play()
+                    this.displayCurrentName()
                     this.displayDivReservationForm()
                 }
             }
