@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="icon" type="image/png" href="images/favicon.png" />
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.mini.css">
         <title>Velo'v | La liberté à portée de bicyclette</title>
     </head>
     <body>
@@ -39,21 +39,21 @@
                 <hr class="red-line">
                 <h2 class="info-title">COMMENT ÇA MARCHE ?</h2>
             </div>
-            <div id="info-slideshow"class="info-slideshow">
+            <div id="info-slideshow" class="info-slideshow">
                 <div class="info-slideshow-buttons">
                     <div id = "slideshow-leftButton" class="info-slideshow-button">
                         <div class="slideshow-wrapper-button">
                             <div class="button-wrapper">
-                                <img class="arrow arrow-left" draggable="false" src="images/arrow-left.png" alt="arrow left">    
+                                <img class="arrow arrow-left" draggable="false" src="images/arrow-left.png" alt="flèche gauche">    
                             </div>
                         </div>
                     </div>
                     <div class="slideshow-wrapper-centerButton">
-                        <div id ="background-buttonPlayPause"class="button-wrapper">
+                        <div id ="background-buttonPlayPause" class="button-wrapper">
                             <div id="slideshow-pausePlayButton"  class="mouseOut">
                                 <div class="buttonPausePlay-wrapper"> 
-                                        <img id="pause" class="pausePlay pause pausePlay_active" draggable="false" src="images/pause-button.png" alt="pause button">
-                                        <img id="play" class="pausePlay play pausePlay_desactive" draggable="false" src="images/play-button.png" alt="play button">
+                                        <img id="pause" class="pausePlay pause pausePlay_active" draggable="false" src="images/pause-button.png" alt="bouton pause">
+                                        <img id="play" class="pausePlay play pausePlay_desactive" draggable="false" src="images/play-button.png" alt="bouton lecture">
                                 </div>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                     <div id ="slideshow-rightButton" class="info-slideshow-button">
                         <div class="slideshow-wrapper-button">
                             <div class="button-wrapper">
-                                <img class="arrow arrow-right" draggable="false" src="images/arrow-right.png" alt="arrow right"> 
+                                <img class="arrow arrow-right" draggable="false" src="images/arrow-right.png" alt="flèche droite"> 
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                                 </div>
 
                                 <div class="map-content-right-info">
-                                        <span class="placeholder">États</span>
+                                        <span class="placeholder">État</span>
                                         <span class="result" id="station-status"></span>
                                 </div>
 
@@ -160,7 +160,7 @@
         </div>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7FK5RF5_zBNe3PgQH9btW1o_aXA3sPhw"></script>
-        <script src="./polyfill.bundle.js"></script>
-        <script src="./app.bundle.js"></script>
+        <script src="./dist/polyfill.bundle.js"></script>
+        <script src="./dist/app.bundle.js"></script>
     </body>
 </html>

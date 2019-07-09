@@ -1,35 +1,43 @@
 class Timer {
 
     constructor(endDate){
-        this.endDate = endDate
-    }
+        this.endDate = endDate;
+        this.stop = false;
+    };
     secondeConverter() {
         window.setInterval(() => {
-            this.endTime = this.endDate - Date.now()
-            this.endTimeSeconde = this.endTime / 1000
+            this.endTime = this.endDate - Date.now();
+            this.endTimeSeconde = this.endTime / 1000;
         }, 1000);
     }
+    
 // Lance le décompte du minuteur
     startTimer(messageReservationTimer){
-        this.secondeConverter()
+        this.secondeConverter();
         let timerGo = setInterval(()=>{
             this.hours   = Math.floor(Math.floor(this.endTimeSeconde) / 3600);
             this.minutes = Math.floor((Math.floor(this.endTimeSeconde) - (this.hours * 3600)) / 60);
             this.seconds = Math.floor(this.endTimeSeconde) - (this.hours * 3600) - (this.minutes * 60);
 
-            if(this.hours < 10) { this.hours = "0" + this.hours;}
-            if (this.minutes < 10) {this.minutes = "0" + this.minutes;}
-            if (this.seconds < 10) {this.seconds = "0" + this.seconds;}
-            if(Date.now() >= this.endDate){
-                window.clearInterval(timerGo)
-                sessionStorage.clear()
-                messageReservationTimer.innerHTML = "La réservation n'est plus disponnible."
+            if(this.hours < 10) { this.hours = "0" + this.hours;};
+            if (this.minutes < 10) {this.minutes = "0" + this.minutes;};
+            if (this.seconds < 10) {this.seconds = "0" + this.seconds;};
+            if(this.stop == false){
+                if(Date.now() >= this.endDate){
+                    window.clearInterval(timerGo);
+                    sessionStorage.clear();
+                    messageReservationTimer.innerHTML = "La réservation n'est plus disponnible.";
+                }
+                else {
+                    messageReservationTimer.innerHTML = "La réservation expire dans " + this.hours + " heure(s), "  + this.minutes + " minute(s) et " + this.seconds + " seconde(s).";
+                };
             }
             else {
-                messageReservationTimer.innerHTML = "La réservation expire dans " + this.hours + " heure(s), "  + this.minutes + " minute(s) et " + this.seconds + " seconde(s)."
-            }
-        }, 1000)
-    }
-}
+                window.clearInterval(timerGo);
+                
+            };
+        }, 1000);
+    };
+};
 
-export default Timer
+export default Timer;

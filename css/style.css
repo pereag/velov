@@ -113,7 +113,11 @@
         overflow: hidden;
     }
     a:active{outline : none;}
-    .red-line-small{color: red;}
+    .red-line-small{
+        background-color: red;
+        border: none;
+        height: 3px;
+    }
     #loader-icon {-webkit-animation: rotation 4s infinite linear;}
     @-webkit-keyframes rotation {
 		from {
